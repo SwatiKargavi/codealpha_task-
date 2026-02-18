@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Project Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">PRO-Manage</div>
+        <ul class="sidebar-menu">
+            <li class="active">Dashboard</li>
+            <li>All Projects</li>
+            <li>Tasks</li>
+            <li id="logout-btn" style="cursor:pointer">Logout</li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <header class="header">
+            <h2>Welcome Back, <span id="user-name">User</span></h2>
+            <button class="btn-add" onclick="showModal()">+ Create Project</button>
+        </header>
+
+        <section class="stats-container">
+            <div class="card"><h3>Total Projects</h3><p id="stat-projects">0</p></div>
+            <div class="card"><h3>Active Tasks</h3><p id="stat-tasks">0</p></div>
+            <div class="card"><h3>Completion Rate</h3><p>85%</p></div>
+        </section>
+
+        <section id="project-list" class="stats-container"></section>
+    </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Create New Project</h2>
+            <form id="project-form">
+                <div class="form-group">
+                    <label for="proj-title">Project Title</label>
+                    <input type="text" id="proj-title" placeholder="e.g. Amazon Redesign" required>
+                </div>
+                <div class="form-group">
+                    <label for="proj-desc">Description</label>
+                    <textarea id="proj-desc" rows="4" placeholder="Briefly describe the goal..."></textarea>
+                </div>
+                <button type="submit" class="btn-add" style="width: 100%;">Create Project</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

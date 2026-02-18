@@ -1,0 +1,138 @@
+:root {
+    --primary: #232f3e;
+    --accent: #febd69;
+    --bg: #eaeded;
+    --white: #ffffff;
+    --text: #131921;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+
+body { background-color: var(--bg); color: var(--text); display: flex; }
+
+/* Sidebar Layout */
+.sidebar { width: 240px; height: 100vh; background: var(--primary); color: white; position: fixed; }
+.sidebar-header { padding: 20px; font-size: 1.5rem; font-weight: bold; border-bottom: 1px solid #3a4553; }
+.sidebar-menu { list-style: none; padding: 20px 0; }
+.sidebar-menu li { padding: 15px 25px; cursor: pointer; transition: 0.2s; }
+.sidebar-menu li:hover, .sidebar-menu li.active { background: #3a4553; border-left: 4px solid var(--accent); }
+
+/* Main Content */
+.main { margin-left: 240px; width: calc(100% - 240px); padding: 20px; }
+
+.header { display: flex; justify-content: space-between; align-items: center; background: var(--white); padding: 15px 30px; margin-bottom: 20px; border-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+
+/* Stats Cards */
+.stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.card { background: var(--white); padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.card h3 { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
+.card p { font-size: 1.8rem; font-weight: bold; color: var(--primary); }
+
+/* Buttons */
+.btn-add { background: var(--accent); border: 1px solid #a88734; padding: 10px 20px; border-radius: 3px; cursor: pointer; font-weight: 500; }
+.btn-add:hover { background: #f3a847; }
+/* Fix for Auth Pages specifically */
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensures it takes full width despite body flex */
+}
+
+/* Button for Auth (Amazon Yellow Style) */
+.btn-auth {
+    width: 100%;
+    background: #f0c14b;
+    border: 1px solid #a88734;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.btn-auth:hover {
+    background: #edb021;
+}
+
+/* View Button inside Project Cards */
+.view-btn {
+    background: #e7e9ec;
+    border: 1px solid #adb1b8;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* --- AUTH & MODAL ADDITIONS --- */
+
+/* Centering the Login/Signup Card */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.auth-card {
+    width: 350px;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.auth-card h1 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 400; }
+
+.auth-card input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+}
+
+/* Modal Styling (For Creating Projects) */
+/* 1. Fix the Modal Position */
+.modal {
+    display: none; 
+    position: fixed; /* This "breaks" the flex rules so it can float */
+    z-index: 9999;   /* Higher than the sidebar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent overlay */
+    justify-content: center; /* Centers horizontally if you use flex on modal itself */
+    align-items: center;     /* Centers vertically */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    margin: 10% auto; /* Fallback centering */
+}
+
+/* 3. Ensure the Sidebar doesn't hide the modal */
+.sidebar {
+    z-index: 100;
+}
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
